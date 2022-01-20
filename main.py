@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 
-url = "https://smile.amazon.com/Instant-Pot-Pressure-Steamer-Sterilizer/dp/B08PQ2KWHS/141-3718383-0667750"
 headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64)'
                          'AppleWebKit/537.36 (KHTML, like Gecko) '
                          'Chrome/44.0.2403.157 Safari/537.36',
@@ -21,4 +20,7 @@ def get_price(current_url):
     print(f"{product_name} -- ${product_price}")
 
 
-get_price(url)
+if __name__ == '__main__':
+    file = open("product_list.txt", "r")
+    for links in file.readlines():
+        get_price(links)
